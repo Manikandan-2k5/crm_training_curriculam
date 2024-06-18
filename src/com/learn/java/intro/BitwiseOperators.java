@@ -4,13 +4,13 @@ public class BitwiseOperators {
 	
 	public static void main(String[] args) {
 		BitwiseOperators bitOperators = new BitwiseOperators();
-		bitOperators.and(0, 0);
-		bitOperators.or(0, 0);
-		bitOperators.xor(0, 0);
-		bitOperators.complement(0);
-		bitOperators.leftShift(0, 0);
-		bitOperators.rightShift(0, 0);
-		bitOperators.unsignedRightShift(0, 0);
+		System.out.println(bitOperators.and(10, 5));
+		System.out.println(bitOperators.or(10, 5));
+		System.out.println(bitOperators.xor(10, 5));
+		System.out.println(bitOperators.complement(5));
+		System.out.println(bitOperators.leftShift(10, 1));
+		System.out.println(bitOperators.rightShift(10, 1));
+		System.out.println(bitOperators.unsignedRightShift(-10, 1));
 	}
 	
 	
