@@ -7,14 +7,14 @@ import java.io.FileReader;
 
 public class BinaryConversions {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		BinaryConversions convertor = new BinaryConversions();
 		//System.out.println(convertor.decimalToBinary(-10));
-		//System.out.println(convertor.floatToBinary(10.53));
+		//System.out.println(convertor.floatToBinary(10.56));
 		//System.out.println(convertor.characterToBinary('z'));
 		//System.out.println(convertor.stringToBinary("Hello Im Manikandan"));
 		//System.out.println(convertor.emojiToBinary("😀"));
-		System.out.println(convertor.fileToString("/home/manikandans/Documents/Data_Store.txt"));
+		//System.out.println(convertor.fileToString("/home/manikandans/Documents/Data_Store.txt"));
 	}
 	
 	
@@ -44,7 +44,10 @@ public class BinaryConversions {
 		}
 	}
 	
-	public String floatToBinary(double num) {
+	public String floatToBinary(double num) throws Exception {
+		if(num<0) {
+			throw new Exception("This function is not designed for negative numbers.");
+		}
 		if(num==0) {
 			return "0.0";
 		}
