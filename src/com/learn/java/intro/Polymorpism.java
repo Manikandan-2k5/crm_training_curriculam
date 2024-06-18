@@ -39,7 +39,6 @@ class Vehicle{
 	
 	public void setName(Vehicle vehicle) {
 		this.name = vehicle.name;
-		java.util.Arrays.sort(new int[5]);
 	}
 	
 }
