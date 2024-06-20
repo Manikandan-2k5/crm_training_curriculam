@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class shows the implementation of variable length arguments in method calls</p>
+ */
 public class VarArgs {
 	
 	public static void main(String[] args) {

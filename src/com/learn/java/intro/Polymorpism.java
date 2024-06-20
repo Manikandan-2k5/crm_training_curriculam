@@ -1,13 +1,9 @@
 package com.learn.java.intro;
 
 /**
- * 
+ * <p>This class explains Polymorphism</p>
  */
 public class Polymorpism {
-	/**
-	 * 
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		//Runtime Polymorphism - Method Overriding
 		Vehicle bike = new Bike();
@@ -27,6 +23,10 @@ public class Polymorpism {
 	}
 }
 
+/**
+ * <p>Vehicle Class(Parent)</p>
+ * <p>Runtime Polymorphism</p>
+ */
 class Vehicle{
 	String name;
 	public void noOfWheels() {
@@ -43,6 +43,9 @@ class Vehicle{
 	
 }
 
+/**
+ * <p>Bike Class(Child)</p>
+ */
 class Bike extends Vehicle{
 	@Override
 	public void noOfWheels() {
@@ -50,6 +53,9 @@ class Bike extends Vehicle{
 	}
 }
 
+/**
+ * <p>Car Class(Child)</p>
+ */
 class Car extends Vehicle{
 	@Override
 	public void noOfWheels() {
@@ -57,13 +63,11 @@ class Car extends Vehicle{
 	}
 }
 
+
+/**
+ * <p>This class explains the pros and cons of Type promotion in method overloading. </p>
+ */
 class Addition{
-	/**
-	 *  This method adds 2 given values and returns the sum
-	 * @param a first number to sum
-	 * @param b second number to sum
-	 * @return the sum of a and b
-	 */
 	public double add(double a , int b) {
 		return a+b;
 	}

@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>Program for All Arithmetic Calculations.</p>
+ */
 public class Arithmetic {
 
     public static void main(String[] args) {
@@ -34,6 +38,13 @@ public class Arithmetic {
         // }
     }
 
+    /**
+     * <p>Gives Product of the arugments</p>
+     * @param a Integer
+     * @param b Integer
+     * @param c Integer
+     * @return returns the product of a, b, c
+     */
     public int product(int a, int b, int c){
         if(a==0 || b==0 || c==0){
             return 0;
@@ -41,10 +52,21 @@ public class Arithmetic {
         return a*b*c;
     }
 
+    /**
+     * <p>Gives the subtracted value of b from a.</p>
+     * @param a Integer
+     * @param b Integer
+     * @return returns the value of b subtracted from a.
+     */
     public int difference(int a, int b){
         return a-b;
     }
 
+    /**
+     * <p>Swaps two variables without using an extra variable.</p>
+     * @param a variable a
+     * @param b variable b
+     */
     public void swap(int a, int b){
         if(a==b){
             System.out.println("Before Swap: "+a+" "+b);
@@ -59,6 +81,13 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Gives the quotient of a divided by b</p>
+     * @param a operand1
+     * @param b operand2
+     * @return returns the value of a divided by b.
+     * @throws Exception
+     */
     public int divide(int a, int b) throws Exception{
         if(a==0){
             return 0;
@@ -71,11 +100,18 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints Whether a given number is Odd or Even</p>
+     * @param num Number to find whether odd or even. 
+     */
     public void oddOrEven(int num){
         String type = num%2==0 ? "Even": "Odd";
         System.out.println(type);
     }
 
+    /**
+     * <p>Method for expressing the operator precedence and associativity</p>
+     */
     public void printProblemResults(){
         byte a = -5;
         byte b = 8;
@@ -98,6 +134,12 @@ public class Arithmetic {
         System.out.println(result);
     }
 
+    /**
+     * <p>Returns sum of n Natural Numbers</p>
+     * @param n
+     * @return sum of n Natural Numbers
+     * @throws Exception
+     */
     public int sumOfNNumbers(int n) throws Exception{
         if(n<=0){
             throw new Exception("Only Natural Numbers are accepted in calculating sum of N Natural Numbers");
@@ -105,6 +147,12 @@ public class Arithmetic {
         return (n*(n+1))/2;
     }
 
+    /**
+     * <p>Returns factorial of a given number</p>
+     * @param number
+     * @return factorial of the number
+     * @throws Exception
+     */
     public int factorial(int number) throws Exception{
         if(number<0){
             throw new Exception("Factorial function is not defined for negative Numbers");
@@ -119,12 +167,23 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints multiplication table of the number till the range.</p>
+     * @param number Number to be multiplied.
+     * @param range Limit for the multiplication table
+     */
     public void multiplicationTables(int number, int range){
         for(int i=1; i<range+1; i++){
             System.out.println(number+" * "+i+" = "+number*i);
         }
     }
 
+    
+    /**
+     * <p>Finds whether a number is prime or not</p>
+     * @param number 
+     * @return returns true if the number is prime. If the number is not prime, it will return false.
+     */
     public boolean isPrime(int number){
         if(number<=1){
             return false;
@@ -140,6 +199,10 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints the Biggest and Smallest value in the List</p>
+     * @param array List to be iterated
+     */
     public void bigAndSmallValuesInList(int[] array){
         if(array.length==0){
             System.out.println("Array is Empty");
@@ -167,6 +230,12 @@ public class Arithmetic {
         }
     }
 
+    
+    /**
+     * <p>Prints odd numbers in a given range</p>
+     * @param start range start included
+     * @param end range end included
+     */
     public void oddNumbersInGivenRange(int start, int end){
         if(start < end){
             for(int i = start; i <= end; i++){
@@ -191,6 +260,11 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints total and average of a given range</p>
+     * @param start range start included
+     * @param end range end included
+     */
     public void totalAndAverageOfRange(int start, int end){
         if(start==end){
             System.out.println("Average: "+start);
@@ -208,6 +282,11 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints total and average of odd and even numbers in the given range</p>
+     * @param start range start included
+     * @param end range end included
+     */
     public void totalAndAverageOfOddAndEven(int start, int end){
         if(start==end && start%2==0){
             System.out.println("Even Average: "+start+", Even Total: "+start);
@@ -241,6 +320,9 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Prints Prime Numbers between 1 to 100</p>
+     */
     public void primeNumbersBetween1To100(){
         for(int i = 2; i<100+1; i++){
             if(isPrime(i)){
@@ -249,6 +331,11 @@ public class Arithmetic {
         }
     }
 
+    /**
+     * <p>Finds whether a given number is palindrome or not.</p>
+     * @param number number to be found whether palindrome or not.
+     * @return returns true if number is palindrome, else returns false.
+     */
     public boolean isPalindrome(int number){
         if(number<0){
             System.out.println("Palindromes are not applicable for negative numbers");

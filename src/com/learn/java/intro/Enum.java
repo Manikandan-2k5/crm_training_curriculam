@@ -1,10 +1,17 @@
 package com.learn.java.intro;
 
+/**
+ * <p>This class gives the implementation of the class ENUM</p>
+ */
 public class Enum {
 	public enum Day{
 		SUNDAY("Leave"), MONDAY("Working Day"), TUESDAY("Working Day"), WEDNESDAY("Working Day"), THURSDAY("Working Day"), FRIDAY("Working Day"), SATURDAY("Leave");
 		private String dayType = "Day";
 		
+		/**
+		 * <p>Day constructor(Enum Constructor)</p>
+		 * @param dayType
+		 */
 		private Day(String dayType){
 			this.dayType = dayType;
 		}

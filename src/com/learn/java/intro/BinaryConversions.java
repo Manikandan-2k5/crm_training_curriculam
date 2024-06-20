@@ -5,6 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+/**
+ * <p>Program for converting Integers, Floats, Strings, Characters, Emojies, Files to Binary.</p>
+ */
 public class BinaryConversions {
 	
 	public static void main(String[] args) throws Exception {
@@ -17,7 +20,11 @@ public class BinaryConversions {
 		//System.out.println(convertor.fileToString("/home/manikandans/Documents/Data_Store.txt"));
 	}
 	
-	
+	/**
+	 * <p>Converts Decimal to Binary and returns the binary as result.</p>
+	 * @param num Number to be converted to Binary.
+	 * @return Binary of the num.
+	 */
 	public String decimalToBinary(long num) {
 		if(num==0) {
 			return "0";
@@ -44,6 +51,11 @@ public class BinaryConversions {
 		}
 	}
 	
+	/**
+	 * <p>Converts Float to Binary and returns the binary as result. Throws exception when num is Negative float.</p>
+	 * @param num Float to be converted to Binary. Float should not be negative.
+	 * @return Binary of the num.
+	 */
 	public String floatToBinary(double num) throws Exception {
 		if(num<0) {
 			throw new Exception("This function is not designed for negative numbers.");
@@ -62,6 +74,11 @@ public class BinaryConversions {
 		return integerPartBinary+"."+fractionalPartBinary;
 	}
 	
+	/**
+	 * <p>Converts a Binary to its Complement by negating each bits of the binary.</p>
+	 * @param binary Binary to be converted to its complement.
+	 * @return Complement of the binary.
+	 */
 	public String complement(String binary) {
 		String complement = "";
 		for(int i=0; i<binary.length(); i++) {
@@ -75,6 +92,12 @@ public class BinaryConversions {
 		return complement;
 	}
 	
+	/**
+	 * <p>Adds two binary operands by doing binary addition.</p>
+	 * @param binary1 operand1 which is binary. Should be of base 2, otherwise result would be not as expected.
+	 * @param binary2 operand2 which is binary. Should be of base 2, otherwise result would be not as expected.
+	 * @return Returns Binary which is the result of adding binary1 and binary2.
+	 */
 	public String binaryAddition(String binary1, String binary2) {
 		String carry = "0";
 		String result = "";
@@ -247,12 +270,22 @@ public class BinaryConversions {
 			
 	}
 	
+	/**
+	 * <p>Converts character to binary, by taking the unicode value of the character.</p>
+	 * @param character to be converted to binary.
+	 * @return returns binary value of the character.
+	 */
 	public String characterToBinary(char character) {
 		String binaryString = "";
 		int ascii = character;
 		return decimalToBinary(ascii);
 	}
 	
+	/**
+	 * <p>Converts true and false to 1 and 0 respectively which are the binary representation of booleans.</p>
+	 * @param bool boolean value to be converted to its binary.
+	 * @return returns binary value of boolean literal.
+	 */
 	public String booleanToBinary(boolean bool) {
 		if(bool) {
 			return "1";
@@ -262,6 +295,11 @@ public class BinaryConversions {
 		}
 	}
 	
+	/**
+	 * <p>Converts string to binary by converting each character to its binary where each binary are delimited by a space.</p>
+	 * @param string to be converted to binary.
+	 * @return returns the binary value of string
+	 */
 	public String stringToBinary(String string) {
 		String binaryString = "";
 		for(int i=0; i<string.length(); i++) {
@@ -270,6 +308,11 @@ public class BinaryConversions {
 		return binaryString;
 	}
 	
+	/**
+	 * <p>Converts emoji to Binary by converting each unicode of the emoji to Binary which are delimited by space.</p>
+	 * @param emoji to be converted to binary.
+	 * @return returns binary value of the emoji
+	 */
 	public String emojiToBinary(String emoji) {
 		String binaryString = "";
 		char[] charArray = emoji.toCharArray();
@@ -279,6 +322,12 @@ public class BinaryConversions {
 		return binaryString;
 	}
 	
+	
+	/**
+	 * <p>Converts file to binary by converting each character in file to binary delimited by spaces.</p>
+	 * @param fileName Name of the file which has to be converted to binary form.
+	 * @return Binary value of the file.
+	 */
 	public String fileToString(String fileName) {
 		String binaryString = "";
 		File file = new File(fileName);

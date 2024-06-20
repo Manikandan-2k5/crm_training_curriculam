@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class tests the upper range of the primitive datatypes</p>
+ */
 public class LimitCheck {
     public static void main(String[] args) {
         byte num1 = (byte)128;                  //Cannot convert from int to byte

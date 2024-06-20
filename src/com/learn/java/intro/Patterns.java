@@ -1,6 +1,10 @@
 package com.learn.java.intro;
 import java.util.ArrayList;
 
+
+/**
+ * This class prints several patterns
+ */
 public class Patterns {
     public static void main(String[] args) {
         Patterns pattern = new Patterns();
@@ -17,6 +21,11 @@ public class Patterns {
 //        pattern.pattern8(5,5);
     }
 
+    
+    /**
+     * <p>Prints fibonacci series</p>
+     * @param limit end range
+     */
     public void fibonacciSeries(int limit){
         int first = 0;
         int second = 1;

@@ -4,7 +4,15 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.learn.java.intro.NestedClasses.StaticClass;
+
+
+/**
+ * <p>Array Manipulations</p>
+ */
 public class Arrays {
+	int num=613000000;
+    int[] list = new int[num];
     public static void main(String[] args) {
         Arrays arrayFunctions = new Arrays();
         int[] array = new int[]{-1,-2,-8,-3,-1,0,3,-3,1,-9,6};
@@ -28,7 +36,7 @@ public class Arrays {
         // arrayFunctions.reversePrint(array);
         // arrayFunctions.print(arrayFunctions.reverse(array));
         // arrayFunctions.sumOfOddAndEvenIndexNumbers(array2);
-        // arrayFunctions.occurenceAndPositions(array, 6);
+        //arrayFunctions.occurrenceAndPositions(array, 6);
         // arrayFunctions.replace(5, 3, array1);
         // arrayFunctions.print(array1);
         // arrayFunctions.sort(array2, false);
@@ -48,6 +56,12 @@ public class Arrays {
         int[][] nestedArray1 = new int[][]{{1,2,3}, {4,5,6}, {7,8,9}};
         int[][] nestedArray2 = new int[][]{{1,2,3}};
         int[][] matrix = new int[][] {{1,0,0},{0,1,0},{0,0,1}};
+        int index = 0;
+        while(index<=arrayFunctions.num-1) {
+        	arrayFunctions.list[index] = index+1;
+        	index++;
+        }
+        System.out.println(arrayFunctions.list[index-1]);
         // System.out.println("Is two matrices are equal: "+arrayFunctions.twoMatricesEquals(nestedArray1, nestedArray2));
         // arrayFunctions.print2DArray(nestedArray);
         // arrayFunctions.addMatrix(nestedArray1, nestedArray2);
@@ -59,6 +73,10 @@ public class Arrays {
         //System.out.println(arrayFunctions.isDiagonalMatrix(matrix));
     }
 
+    /**
+     * <p>Prints elements and index of the elements in an array</p>
+     * @param array Array to be iterated.
+     */
     public void printElementsAndIndex(int[] array){
         if(array.length==0){
             System.out.println("Array is empty.");
@@ -70,6 +88,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Returns the second largest value in the int array</p>
+     * @param array array to be iterated
+     * @return returns the second largest value in the array
+     * @throws Exception
+     */
     public int secondLargestElement(int[] array) throws Exception{
         if(array.length==0){
             throw new Exception("Array is empty.");
@@ -97,6 +121,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Returns the third smallest value in the int array</p>
+     * @param array array to be iterated
+     * @return returns the third smallest value in the array
+     * @throws Exception
+     */
     public int thirdSmallestElement(int[] array) throws Exception{
         if(array.length==0){
             throw new Exception("Array is empty.");
@@ -131,6 +161,10 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Prints the array</p>
+     * @param array array to be iterated
+     */
     public void print(int[] array){
         System.out.print("[");
         for(int i=0; i<array.length; i++){
@@ -143,6 +177,12 @@ public class Arrays {
         System.out.print("]\n");
     }
 
+    
+    /**
+     * <p>Returns a copy of a give array</p>
+     * @param array array to be copied
+     * @return returns the copy the give array
+     */
     public int[] copy(int[] array){
         if(array.length==0){
             return new int[0];
@@ -158,6 +198,10 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Prints the given array in reverse order</p>
+     * @param array array to be printed in reverse
+     */
     public void reversePrint(int[] array){
         System.out.print("[");
         for(int i=array.length-1; i>=0; i--){
@@ -170,7 +214,12 @@ public class Arrays {
         System.out.print("]\n");
     }
 
-    public int[] rinteverse(int[] array){
+    /**
+     * <p>Returns the reversed array</p>
+     * @param array array to be reversed
+     * @return returns the reversed array
+     */
+    public int[] reverse(int[] array){
         if(array.length<=1){
             return array;
         }
@@ -186,6 +235,10 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Prints sum of odd and even indexed element in the int array</p>
+     * @param array array to be iterated
+     */
     public void sumOfOddAndEvenIndexNumbers(int[] array){
         if(array.length==0){
             System.out.println("Even index numbers sum: "+0);
@@ -207,7 +260,13 @@ public class Arrays {
         }
     }
 
-    public void occurenceAndPositions(int[] array, int num){
+    
+    /**
+     * <p>Prints the occurrence and positions of the given element in the given array</p>
+     * @param array the array to be iterated
+     * @param num the number in the array
+     */
+    public void occurrenceAndPositions(int[] array, int num){
         if(array.length==0){
             System.out.println("Array is Empty");
         }
@@ -235,6 +294,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Replaces the given number at the position of other number in the given int array</p>
+     * @param num1 Number to be replaced at the position of num2
+     * @param num2 Number to be replaced by num1
+     * @param array array to be iterated
+     */
     public void replace(int num1, int num2, int[] array){
         if(array.length==0){
             System.out.println("Array is Empty");
@@ -260,6 +325,12 @@ public class Arrays {
         }
     }
 
+    
+    /**
+     * <p>Sorts an int array in ascending or descending order</p>
+     * @param array array to be sorted.
+     * @param ascending isAscending boolean value. If true sorts the array in ascending else descending.
+     */
     public void sort(int[] array, boolean ascending){
         if(array.length==0){
             System.out.println("Array is Empty");
@@ -294,6 +365,13 @@ public class Arrays {
 
     }
 
+    
+    /**
+     * <p>Returns the concatenated array of the given two arrays</p>
+     * @param array1 array to be concatenated
+     * @param array2 array to be concatenated
+     * @return returns the concatenated array of the given two arrays
+     */
     public int[] concatenate(int[] array1, int[] array2){
         if(array1.length==0 && array2.length==0){
             return new int[0];
@@ -319,6 +397,13 @@ public class Arrays {
         }
     }
 
+    
+    /**
+     * <p>Removes the duplicates in the given array and returns the array</p>
+     * @param array array to be iterated
+     * @return returns duplicate less array
+     * @throws Exception
+     */
     public int[] deleteDuplicates(int[] array) throws Exception{
         if(array.length<=1){
             return array;
@@ -362,6 +447,12 @@ public class Arrays {
         }
     }   
 
+    /**
+     *<p>Returns the maximum of the given array</p>
+     * @param array array to be iterated
+     * @return returns the maximum of the given array
+     * @throws Exception
+     */
     public int maximum(int[] array) throws Exception{
         if(array.length==0){
             throw new Exception("Array is Empty.");
@@ -385,6 +476,10 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Returns an array which does not contain duplicates. Array elements are got from user input</p>
+     * @return returns the array which does not have duplicates
+     */
     public int[] getSetArray(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int[] array = new int[5];
@@ -419,6 +514,13 @@ public class Arrays {
         return array;
     }
 
+    
+    /**
+     * <p>Finds whether a given element is present or not in an int array</p>
+     * @param array array to be iterated
+     * @param num Number to be checked in the given array
+     * @return returns true if array contains given element else returns false.
+     */
     public boolean isPresent(int[] array, int num){
         if(array.length==0){
             return false;
@@ -439,6 +541,10 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Gets Input from user in an incremental way and stores that in an array and returns it</p>
+     * @return returns an incremental array.
+     */
     public int[] getIncrementalArray(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int[] array = new int[5];
@@ -476,6 +582,12 @@ public class Arrays {
         return array;
     }
 
+    /**
+     * <p>Finds whether num1 is greater than num2</p>
+     * @param num1 operand1
+     * @param num2 operand2
+     * @return returns true if num1 is greater than num2, else returns false.
+     */
     public boolean isGreaterThan(int num1, int num2){
         if(num1>num2){
             return true;
@@ -483,7 +595,11 @@ public class Arrays {
         return false;
     }
 
-    public void splitOddEvinten(int[] array){
+    /**
+     * <p>Splits given array into two arrays of odd and even and prints it</p>
+     * @param array array to be iterated
+     */
+    public void splitOddEven(int[] array){
         if(array.length==0){
             System.out.println("Array is Empty");
         }
@@ -503,6 +619,11 @@ public class Arrays {
         }
     }
 
+    
+    /**
+     * <p>Prints a 2D Nested Array</p>
+     * @param array array to be iterated
+     */
     public void print2DArray(int[][] array){
         for(int i=0 ;i<array.length; i++){
             if(i==0){
@@ -528,6 +649,11 @@ public class Arrays {
         }
     }
     
+    
+    /**
+     * <p>Prints a Matrix</p>
+     * @param array array to be iterated
+     */
     public void printMatrix(int[][] array){
         for(int i=0 ;i<array.length; i++){
         	System.out.print("[");
@@ -543,6 +669,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Returns the minimum of the given array</p>
+     * @param array array to be iterated
+     * @return returns the minimum value of the given array
+     * @throws Exception
+     */
     public int minimum(int[] array) throws Exception{
         if(array.length==0){
             throw new Exception("Array is Empty.");
@@ -566,6 +698,12 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Finds whether given matrices are equal</p>
+     * @param matrix1
+     * @param matrix2
+     * @return returns true if two matrices are equal, else it returns false
+     */
     public boolean twoMatricesEquals(int[][] matrix1, int[][] matrix2){
         int matrix1RowLength = matrix1.length;
         int matrix1Columnlength = matrix1[0].length;
@@ -587,6 +725,12 @@ public class Arrays {
         }
     }
 
+    
+    /**
+     * <p>Prints the resultant matrix when two matrices are added</p>
+     * @param matrix1
+     * @param matrix2
+     */
     public void addMatrix(int[][] matrix1, int[][] matrix2){
         int matrix1RowLength = matrix1.length;
         int matrix1Columnlength = matrix1[0].length;
@@ -607,6 +751,11 @@ public class Arrays {
         }
     }
 
+    /**
+     * <p>Prints the resultant matrix when two matrices are subtracted</p>
+     * @param matrix1
+     * @param matrix2
+     */
     public void subtractMatrix(int[][] matrix1, int[][] matrix2){
         int matrix1RowLength = matrix1.length;
         int matrix1Columnlength = matrix1[0].length;
@@ -627,6 +776,12 @@ public class Arrays {
         }
     }
 
+    
+    /**
+     * <p>Prints the resultant matrix when two matrices are multiplied</p>
+     * @param matrix1
+     * @param matrix2
+     */
     public void multiplyMatrix(int[][] matrix1, int[][] matrix2){
         int matrix1RowLength = matrix1.length;
         int matrix1Columnlength = matrix1[0].length;
@@ -664,6 +819,10 @@ public class Arrays {
         }
     }
     
+    /**
+     * <p>Prints transpose of a given matrix</p>
+     * @param matrix
+     */
     public void transposeOfMatrix(int[][] matrix) {
     	int rows = matrix.length;
     	int columns = matrix[0].length;
@@ -676,6 +835,11 @@ public class Arrays {
     	printMatrix(transpose);
     }
     
+    /**
+     * <p>Finds whether a given matrix is square matrix or not</p>
+     * @param matrix matrix to be iterated
+     * @return returns true if the given matrix is square matrix, else returns false.
+     */
     public boolean isSquareMatrix(int[][] matrix) {
     	if(matrix.length==0) {
     		return false;
@@ -693,6 +857,12 @@ public class Arrays {
     	}
     }
     
+    /**
+     * <p>Finds whether a given matrix is identity matrix or not</p>
+     * @param matrix matrix to be iterated
+     * @return returns true if the given matrix is identity matrix, else returns false.
+     */
+
     public boolean isIdentityMatrix(int[][] matrix) {
     	if(!isSquareMatrix(matrix)) {
     		return false;
@@ -715,6 +885,12 @@ public class Arrays {
     	}
     }
     
+    /**
+     * <p>Finds whether a given matrix is scalar matrix or not</p>
+     * @param matrix matrix to be iterated
+     * @return returns true if the given matrix is scalar matrix, else returns false.
+     */
+
     public boolean isScalarMatrix(int[][] matrix) {
     	if(!isSquareMatrix(matrix)) {
     		return false;
@@ -738,6 +914,12 @@ public class Arrays {
     	}
     }
     
+    /**
+     * <p>Finds whether a given matrix is diagonal matrix or not</p>
+     * @param matrix matrix to be iterated
+     * @return returns true if the given matrix is diagonal matrix, else returns false.
+     */
+
     public boolean isDiagonalMatrix(int[][] matrix) {
     	if(!isSquareMatrix(matrix)) {
     		return false;

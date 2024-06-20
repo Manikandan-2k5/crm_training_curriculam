@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class implements the use of relational operators</p>
+ */
 public class RelationalOperators {
 
     public static void main(String[] args) {
@@ -29,6 +33,12 @@ public class RelationalOperators {
         compare.upperOrLower('Z');
     }
 
+    /**
+     * <p>Returns the biggest number in a, b</p>
+     * @param a operand1
+     * @param b operand2
+     * @return returns the biggest number in a, b.
+     */
     public int bigNumber(int a, int b){
         if(a<b){
             return b;
@@ -37,7 +47,14 @@ public class RelationalOperators {
             return a;
         }
     }
-
+    
+    /**
+     * <p>Returns the biggest number in a, b, c</p>
+     * @param a operand1
+     * @param b operand2
+     * @param c operand3
+     * @return returns the biggest number in a, b, c.
+     */
     public int bigNumber(int a, int b, int c){
         if(a>=b && a>=c){
             return a;
@@ -50,6 +67,10 @@ public class RelationalOperators {
         }
     }
 
+    /**
+     * <p>Prints whether a character is in upper case or in lower case or a special character</p>
+     * @param alphabet character
+     */
     public void upperOrLower(char alphabet){
         if((int)alphabet>=65 && (int)alphabet<=90){
             System.out.println(alphabet+" is UpperCase");

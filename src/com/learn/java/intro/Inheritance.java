@@ -1,6 +1,9 @@
 package com.learn.java.intro;
 
 
+/**
+ * <p>This class explains the concept of Inheritance</p>
+ */
 public class Inheritance {
 	public static void main(String[] args) {
 		//Hierarchical Inheritance, Multiple Sub classes.
@@ -15,26 +18,41 @@ public class Inheritance {
 	}
 }
 
-//Hierarchical Inheritance, Multiple Sub classes.
+/**
+ * <p>Mobile Class</p>
+ */
 class Mobile{
 	int price;
 	double memory;
 	double ram;
 	int pixels;
 	
+	/**
+	 * <p>Function for Display</p>
+	 */
 	public void display() {
 		System.out.println("Display");
 	}
 	
+	/**
+	 * <p>Function for Calling</p>
+	 */
 	public void call() {
 		System.out.println("Calling");
 	}
 	
+	/**
+	 * <p>Function for Assistant</p>
+	 */
 	public void assistant() {
 		System.out.println("Mobile Assistant");
 	}
 }
 
+
+/**
+ * <p>Samsung Class Extension of Mobile Class</p>
+ */
 class Samsung extends Mobile{
 	@Override
 	public void assistant() {
@@ -42,6 +60,9 @@ class Samsung extends Mobile{
 	}
 }
 
+/**
+ * <p>Apple Class Extension of Mobile Class</p>
+ */
 class Apple extends Mobile{
 	@Override
 	public void assistant() {
@@ -49,19 +70,29 @@ class Apple extends Mobile{
 	}
 }
 
+
 //--------------------------
 //MutiLevel Inheritance
+/**
+ * <p>Parent Class</p>
+ */
 class Animal{
 	String name;
 	int noOfLegs;
 	int noOfHands;
 
+	/**
+	 * <p>Animal makes sound</p>
+	 */
 	public void sound() {
 		System.out.println("Animals Sound");
 	}
 	
 }
 
+/**
+ * Cat Class Extension of Animal Class
+ */
 class Cat extends Animal{
 	
 	boolean isCarnivore = false; 
@@ -73,6 +104,9 @@ class Cat extends Animal{
 	
 }
 
+/**
+ * <p>Cheetah Class Extension of Cat Class</p>
+ */
 class Cheetah extends Cat{
 	
 	public Cheetah() {

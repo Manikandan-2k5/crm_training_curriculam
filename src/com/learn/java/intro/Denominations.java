@@ -4,6 +4,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * <p>This class provides program for denomination based calculations</p>
+ */
 public class Denominations {
 
     short twoThousand = 2000;
@@ -17,6 +20,10 @@ public class Denominations {
         Denominations denominations = new Denominations();
     }
 
+    /**
+     * <p>Prints rupees in the available denominations</p>
+     * @param rupees rupees to be converted to denominations.
+     */
     public void rupeesToDenominations(int rupees){
         ArrayList<int[]> denominations = new ArrayList<int[]>();
         while(rupees>0){
@@ -64,6 +71,12 @@ public class Denominations {
     }
 
 
+    
+    /**
+     * <p>Returns String which represents the denominations of a rupee currency</p>
+     * @param denominations
+     * @return returns string representation of a rupee denomination.
+     */
     public String denominationsToString(ArrayList<int[]> denominations){
         String result = "";
         int total = 0; 
@@ -75,6 +88,12 @@ public class Denominations {
         return result;
     }
 
+    
+    /**
+     * <p>Return rupees from the given denominations</p>
+     * @param denominations to be converted to rupees
+     * @return returns rupees of the given denominations
+     */
     public int denominationsToRupees(ArrayList<int[]> denominations){
         if(denominations.size()==0){
             return 0;
@@ -88,6 +107,9 @@ public class Denominations {
         }
     }
 
+    /**
+     * <p>Creates a user interface for user to give denominations input</p>
+     */
     public void inputDenominations(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<int[]> denominations = new ArrayList<int[]>();

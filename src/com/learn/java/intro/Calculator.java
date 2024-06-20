@@ -3,12 +3,22 @@ package com.learn.java.intro;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * <p>This class provides implementations for all calculator operations</p>
+ */
 public class Calculator {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
         calculator.main();
     }
 
+    
+    /**
+     * <p>Returns sum of a and b</p>
+     * @param a operand1
+     * @param b operand2
+     * @return returns sum of a and b
+     */
     public int add(int a, int b){
         if(a==0){
             return b;
@@ -24,6 +34,12 @@ public class Calculator {
         }
     }
 
+    /**
+     * <p>Returns difference of a and b</p>
+     * @param a operand1
+     * @param b operand2 
+     * @return returns difference of a and b.
+     */
     public int subtract(int a, int b){
         if(a==0){
             return -b;
@@ -39,6 +55,13 @@ public class Calculator {
         }
     }
 
+    
+    /**
+     * <p>Returns product of a and b</p>
+     * @param a operand1
+     * @param b operand2
+     * @return returns product of a and b.
+     */
     public int multiply(int a, int b){
         if(a==0 || b==0){
             return 0;
@@ -48,6 +71,13 @@ public class Calculator {
         }
     }
 
+    /**
+     * <p>Returns quotient when a is divided by b</p>
+     * @param a operand1
+     * @param b operand2
+     * @return returns quotient when a is divided by b.
+     * @throws Exception
+     */
     public int divide(int a, int b) throws Exception{
         if(a==0){
             return 0;
@@ -60,6 +90,12 @@ public class Calculator {
         }
     }
 
+    /**
+     * <p>Returns remainder when a is divided by b</p>
+     * @param a operand1
+     * @param b operand
+     * @return returns remainder when a is divided  by b.
+     */
     public int modulo(int a, int b){
         if(a<b){
             return a;
@@ -69,6 +105,9 @@ public class Calculator {
         }
     }
 
+    /**
+     * <p>It creates the command line user interface for the user to do their calculations.</p>
+     */
     public void main(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Calculator\n");

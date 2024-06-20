@@ -1,5 +1,8 @@
 package com.learn.java.intro;
 
+/**
+ * <p>This class experiments the type castings</p>
+ */
 public class TypeCasting {
     public static void main(String[] args) {
         byte num1 = 127;

@@ -1,5 +1,8 @@
 package com.learn.java.intro;
 
+/**
+ * <p>This class is the Class representation of a Product(POJO, Real Time Entity)</p>
+ */
 public class Product {
 	
 	public String productName = null;
@@ -59,6 +62,9 @@ public class Product {
 		this.productStock = productStock;
 	}
 	
+	/**
+	 * <p>Inner Class for the Product class purpose</p>
+	 */
 	class Display{
 		public void displayProductDetails() {
 			System.out.println("Product Name: "+productName);

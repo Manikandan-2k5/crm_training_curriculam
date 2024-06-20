@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class provides examples for incompatible type castings</p>
+ */
 public class IncompatibleCastings {
     public static void main(String[] args) {
         String string = "Hello";

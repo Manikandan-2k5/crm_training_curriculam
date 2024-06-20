@@ -5,6 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+/**
+ * <p>This class gives an User Interface to check the eligibility to vote and returns the statistics of the people who volunteered for vote.</p>
+ */
 public class VotersIdentification {
 
     int maleCandidatesEligible = 0;
@@ -25,6 +28,10 @@ public class VotersIdentification {
         System.out.println("Female Candidates: "+votersApp.femaleCandidatesEligible+"\n");
     }
 
+    /**
+     * <p>Gets Input from user i.e name, age, gender</p>
+     * @return returns an array list of the person's name, age, gender.
+     */
     public ArrayList<Object> getInputs(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Object> candidateDetails = new ArrayList<Object>();
@@ -52,6 +59,11 @@ public class VotersIdentification {
         return candidateDetails;
     }
 
+    /**
+     * <p>Checks whether the person with the given age is eligible for voting.</p>
+     * @param age age to be checked
+     * @return returns true if the person with the given age is eligible for voting, else returns false.
+     */
     public boolean isEligibleVoter(byte age){
         if(age>=18){
             return true;
@@ -73,6 +85,9 @@ public class VotersIdentification {
         femaleCandidatesEligible++;
     }
 
+    /**
+     * <p>Creates the main user interface for logging their voting credentials to determine whether they are eligible for voting and prints the statistics of the people who volunteered to vote.</p>
+     */
     public void main(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         while(true){

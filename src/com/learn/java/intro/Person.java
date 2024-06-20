@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class represents the details of the person. A real time entity class.</p>
+ */
 public class Person {
     private String name;
     private String gender;

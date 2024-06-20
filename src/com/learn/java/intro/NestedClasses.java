@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+
+/**
+ * <p>This class implements the Nested Class feature in java</p>
+ */
 public class NestedClasses {
 	
 	static int staticVariable = 100;
@@ -21,6 +25,9 @@ public class NestedClasses {
 		greet.run();
 	}
 	
+	/**
+	 * <p>Static Nested Class</p>
+	 */
 	static class StaticClass{
 		public void displayStaticFields() {//Only static fields of outer class is accessible.
 			System.out.println(staticVariable);
@@ -28,6 +35,9 @@ public class NestedClasses {
 		}
 	}
 	
+	/**
+	 * <p>Inner Nested Class</p>
+	 */
 	class InnerClass{
 		public void displayAllFields() { // All fields of outer class are accessible.
 			System.out.println(staticVariable);
@@ -35,11 +45,17 @@ public class NestedClasses {
 		}
 	}
 	
+	/**
+	 * <p>This method implements the local class</p>
+	 */
 	public void localClassMethod() {
 		int num1 = 100;
 		final int num2 = 100;
 		int num3 = 100;
 		num3 = 50; //reassigning the value.
+		/**
+		 * <p>Local Nested Class</p>
+		 */
 		class LocalClass{// final local variable are only accesible.
 			public void displayLocalFinalFields() {
 				System.out.println(num1);

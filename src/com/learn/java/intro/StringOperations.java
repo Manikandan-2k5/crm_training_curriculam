@@ -3,6 +3,9 @@ package com.learn.java.intro;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * <p>This class contains programs for string manipulations</p>
+ */
 public class StringOperations {
     public static void main(String[] args) {
         StringOperations stringOperations = new StringOperations();
@@ -27,6 +30,11 @@ public class StringOperations {
         // System.out.println(stringOperations.countLines(string));
     }
 
+    
+    /**
+     * <p>Gets String Input from User</p>
+     * @return
+     */
     public String getInput(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
@@ -39,6 +47,11 @@ public class StringOperations {
         return input;
     }
 
+    
+    /**
+     * <p>Gets character Input from User</p>
+     * @return
+     */
     public char getSingleCharacterInput(){
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String inputString = "";
@@ -63,6 +76,11 @@ public class StringOperations {
         return character;
     }
 
+    
+    /**
+     * <p>Converts string to title case</p>
+     * @param input string to be converted
+     */
     public void titleCase(String input){
         String output = "";
         for(int i=0; i<input.length(); i++){
@@ -89,6 +107,10 @@ public class StringOperations {
         System.out.println(output);
     }
 
+    /**
+     * <p>Converts string to lower case</p>
+     * @param input string to be converted.
+     */
     public void lowerCase(String input){
         String output = "";
         for(int i=0; i<input.length(); i++){
@@ -102,6 +124,10 @@ public class StringOperations {
         System.out.println(output);
     }
 
+    /**
+     * <p>Converts string to upper case</p>
+     * @param input string to be converted
+     */
     public void upperCase(String input){
         String output = "";
         for(int i=0; i<input.length(); i++){
@@ -114,7 +140,12 @@ public class StringOperations {
         }
         System.out.println(output);
     } 
-
+    
+    
+    /**
+     * <p>Converts string to sentence case</p>
+     * @param input string to be converted
+     */
     public void sentenceCase(String input){
         String output = "";
         for(int i=0; i<input.length(); i++){
@@ -139,6 +170,12 @@ public class StringOperations {
         System.out.println(output);
     }
 
+    
+    /**
+     * <p>Checks whether a given character is upper case</p>
+     * @param character character to be checked
+     * @return returns true if the character is upper case, else returns false.
+     */
     public boolean isUpperCase(char character){
         if((int)character>=65 && (int)character<=90){
             return true;
@@ -146,6 +183,11 @@ public class StringOperations {
         return false;
     }
 
+    /**
+     * <p>Checks whether a given character is lower case</p>
+     * @param character character to be checked
+     * @return returns true if the character is lower case, else returns false.
+     */
     public boolean isLowerCase(char character){
         if((int)character>=97 && (int)character<=122){
             return true;
@@ -153,6 +195,11 @@ public class StringOperations {
         return false;
     }
 
+    /**
+     * <p>Returns the reverse of the given string</p>
+     * @param input string to be reversed.
+     * @return returns the reverse of the given string
+     */
     public String reverseString(String input){
         String reverse = "";
         for(int i=input.length()-1; i>=0; i--){
@@ -161,6 +208,12 @@ public class StringOperations {
         return reverse;
     }
 
+    /**
+     * <p>Returns the index of the character's first occurrence in the given string</p>
+     * @param input string to be iterated.
+     * @param character character's index to be found.
+     * @return returns the index of the character's first occurrence in the given string.
+     */
     public int firstPosition(String input, char character){
         int index = -1;
         for(int i=0; i<input.length(); i++){
@@ -190,6 +243,12 @@ public class StringOperations {
         System.out.println("Is the substring preset in the main string: "+isSubString);
     }
 
+    /**
+     * <p>Checks whether the given string is a substring of the other given string</p>
+     * @param string given string
+     * @param subString given substring
+     * @return returns true if the string contains the substring, else returns false.
+     */
     public boolean isSubString(String string, String subString){
         boolean result = false;
         for(int i=0; i<string.length(); i++){
@@ -227,6 +286,11 @@ public class StringOperations {
         System.out.println("Position of the character is: "+index);
     }
 
+    
+    /**
+     * <p>Gets Number input from the user and returns it</p>
+     * @return returns the number input
+     */
     private int getNumberInput() {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String input = "";
@@ -246,6 +310,13 @@ public class StringOperations {
         return index;
     }
 
+    /**
+     * <p>Returns the first position of the character in the string starting from a particular index</p>
+     * @param input String to be iterated
+     * @param character character to be found
+     * @param startPos start position of the string
+     * @return returns the first position of the given character.
+     */
     public int firstPosition(String input, char character, int startPos){
         int index = -1;
         for(int i=startPos; i<input.length(); i++){
@@ -257,6 +328,13 @@ public class StringOperations {
         return index;
     }
 
+    /**
+     * <p>Replaces a given character in the given string at the position of the given character and returns the string.</p>
+     * @param string string to be iterated
+     * @param character1 character to be replaced at the position of character2
+     * @param character2 character to be replaced by character1
+     * @return returns the string after replacement.
+     */
     public String replace(String string, char character1, char character2){
         String output = "";
         for(int i=0; i<string.length(); i++){
@@ -270,6 +348,11 @@ public class StringOperations {
         return output;
     }
     
+    /**
+     * <p>Checks whether a string is palindrome</p>
+     * @param input string to be iterated
+     * @return returns true if string is palindrome, else returns false.
+     */
     public boolean isPalindrome(String input){
         String reverse = "";
         boolean result = false;
@@ -293,6 +376,12 @@ public class StringOperations {
         return result;
     }
 
+    /**
+     * <p>Checks if two strings are equal</p>
+     * @param input1 string1
+     * @param input2 string2
+     * @return returns true if two strings are equal, else returns false.
+     */
     public boolean equals(String input1, String input2){
         int count = 0;
         boolean result = false;
@@ -320,6 +409,11 @@ public class StringOperations {
         return result;
     }
 
+    /**
+     * <p>Returns reversed sentence</p>
+     * @param sentence sentence to be reversed
+     * @return returns reversed sentence
+     */
     public String reverseSentence(String sentence){
         String output = "";
         String word = "";
@@ -337,6 +431,11 @@ public class StringOperations {
         return output;
     }
 
+    /**
+     * <p>Returns sorted string<p>
+     * @param string string to be sorted
+     * @return returns sorted string
+     */
     public String sort(String string){
         String output = "";
         int count = 0;
@@ -368,6 +467,12 @@ public class StringOperations {
         return output;
     }
 
+    
+    /**
+     * <p>Returns the count of the vowels in the given string</p>
+     * @param string string to be iterated
+     * @return returns the count of vowels in the given string
+     */
     public int countVowels(String string){
         int[] vowelAsciis = new int[]{65, 69, 73, 79, 85, 97, 101, 105, 111, 117};
         int count = 0;
@@ -381,6 +486,11 @@ public class StringOperations {
         return count;
     }
 
+    /**
+     * <p>Returns the count of the special characters in the given string</p>
+     * @param string string to be iterated
+     * @return returns the count of special characters in the given string
+     */
     public int countSpecialCharacter(String string){
         int count = 0;
         for(int i=0; i<string.length(); i++){
@@ -391,6 +501,11 @@ public class StringOperations {
         return count;
     }
 
+    /**
+     * <p>Returns the count of the words in the given string</p>
+     * @param string string to be iterated
+     * @return returns the count of words in the given string
+     */
     public int countWords(String string){
         int count = 0;
         if(string.length()==0){
@@ -415,6 +530,11 @@ public class StringOperations {
         }
     }
 
+    /**
+     * <p>Returns the count of the numbers in the given string</p>
+     * @param string string to be iterated
+     * @return returns the count of numbers in the given string
+     */
     public int countNumbers(String string){
         int count = 0;
         for(int i=0; i<string.length(); i++){
@@ -437,6 +557,11 @@ public class StringOperations {
         return count;
     }
 
+    /**
+     * <p>Returns the count of the lines in the given string</p>
+     * @param string string to be iterated
+     * @return returns the count of lines in the given string
+     */
     public int countLines(String string){
         int count = 0;
         if(string.length()==0){
@@ -470,7 +595,12 @@ public class StringOperations {
     }
 
     public void program4(String string){
-
+    	System.out.println("No of Words in string: "+countWords(string));
+    	System.out.println("No of Lines in string: "+countLines(string));
+    	System.out.println("No of Numbers in string: "+countNumbers(string));
+    	System.out.println("No of Special Characters in string: "+countSpecialCharacter(string));
+    	System.out.println("No of Vowels in string: "+countVowels(string));
+    	System.out.println("No of Characters in string: "+string.length());
     }
 
 }
