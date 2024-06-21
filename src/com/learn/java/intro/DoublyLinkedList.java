@@ -12,6 +12,7 @@ public class DoublyLinkedList <E>{
 		linkedList.delete(1);
 		linkedList.delete(2);
 		linkedList.update(5,2);
+		linkedList.add(5);
 		linkedList.printAllNodes();
 		System.out.println("\nHead: "+linkedList.head.element);
 		System.out.println("Tail: "+linkedList.tail.element);

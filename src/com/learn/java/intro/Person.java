@@ -4,7 +4,7 @@ package com.learn.java.intro;
 /**
  * <p>This class represents the details of the person. A real time entity class.</p>
  */
-public class Person {
+public class Person implements Comparable<Person>{
     private String name;
     private String gender;
     private String dob;
@@ -16,7 +16,7 @@ public class Person {
     private String city;
     private String country;
     private int pinCode;
-    private boolean isAadharAvailable;
+	private boolean isAadharAvailable;
     private boolean isTelephoneAvailable;
     private long phoneNumber = 8610045338l;
     private String qualification;
@@ -52,7 +52,7 @@ public class Person {
 
     @Override
     public String toString(){
-        return "Name: "+name+"\nAddress: "+street+"\nQualification: "+qualification;
+        return "{Name: "+name+", City: "+city+", Age: "+age+"}";
     }
 
     public void setName(String name) {
@@ -137,6 +137,87 @@ public class Person {
         }
         return false;
     }
+    
+    public String getName() {
+		return name;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public String getDob() {
+		return dob;
+	}
+
+	public Integer getAge() {
+		return (int)age;
+	}
+
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public String getDoorNumber() {
+		return doorNumber;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public String getLocality() {
+		return locality;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public int getPinCode() {
+		return pinCode;
+	}
+
+	public boolean isAadharAvailable() {
+		return isAadharAvailable;
+	}
+
+	public boolean isTelephoneAvailable() {
+		return isTelephoneAvailable;
+	}
+
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public String getQualification() {
+		return qualification;
+	}
+
+	public boolean isSalaried() {
+		return isSalaried;
+	}
+
+	public int getMonthSalary() {
+		return monthSalary;
+	}
+
+	public int getMonthlyExpense() {
+		return monthlyExpense;
+	}
+
+	public String[] getHobbies() {
+		return hobbies;
+	}
+	
+	@Override
+	public int compareTo(Person person) {
+		return this.monthSalary-person.monthSalary;
+	}
 
     
 }
