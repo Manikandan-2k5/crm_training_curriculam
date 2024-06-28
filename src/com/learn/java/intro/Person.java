@@ -24,6 +24,12 @@ public class Person implements Comparable<Person>{
     private int monthSalary;
     private int monthlyExpense;
     private String[] hobbies;
+    /**
+    Badminton
+    Carrom
+    Cycling
+    Chess
+    **/
 
     public static void main(String[] args) {
         Person person = new Person();
@@ -221,3 +227,5 @@ public class Person implements Comparable<Person>{
 
     
 }
+
+

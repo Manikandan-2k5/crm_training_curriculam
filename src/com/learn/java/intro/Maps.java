@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Maps {
 	
@@ -13,7 +14,8 @@ public class Maps {
 		 Maps maps = new Maps();
 		 //maps.hashMapFunctions();
 		 //maps.linkedHashMapFunctions();
-		 maps.treeMapFunctions();
+		 //maps.treeMapFunctions();
+		 //maps.concurrentHashMapFunctions();
 	}
 	
 	/**
@@ -185,5 +187,19 @@ public class Maps {
 		System.out.println("Prints the key which is the least possible key that is greater than the given key: "+treeMap.higherKey(2));
 		System.out.println("Prints the key which is the greatest possible key that is less than or equal to the given key: "+treeMap.floorKey(5));
 		System.out.println("Prints the key which is the least possible key that is greater than or equal to the given key: "+treeMap.ceilingKey(2));
+	}
+	
+	/**
+	 * <p>Difference between Concurrent Hash Map and normal Hash Map</p>
+	 */
+	public void concurrentHashMapFunctions() {
+		HashMap<Integer, String> hashMap = new HashMap<Integer, String>();
+		hashMap.put(1, "Mani");
+		ConcurrentHashMap<Integer, String> concurrentMap = new ConcurrentHashMap<Integer, String>();
+		concurrentMap.put(1, "Mani");
+		concurrentMap.forEach((key, value) -> concurrentMap.put(5, "Manikandan"));//fail safe
+		System.out.println("Concurrent Hash Map(Fail Safe): "+concurrentMap);
+		System.out.println("Hash Map(Fail Fast)");
+		hashMap.forEach((key, value) -> hashMap.put(5, "Manikandan"));//fail fast
 	}
 }

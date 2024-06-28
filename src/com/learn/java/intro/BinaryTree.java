@@ -19,18 +19,16 @@ public class BinaryTree{
 		tree.insert(7);
 		tree.insert(8);
 		tree.insert(6);
-		tree.insert(9);
-		tree.insert(10);
 		
-//		tree.preorderTraversal(tree.root);
-//		System.out.println();
+		tree.preorderTraversal(tree.root);
+		System.out.println();
 		tree.inorderTraversal(tree.root);
-//		System.out.println();
-//		tree.postorderTraversal(tree.root);
-//		System.out.println();
-//		tree.iterativePreorderTraversal(tree.root);
-//		System.out.println();
-//		tree.iterativePostorderTraversal(tree.root);
+		System.out.println();
+		tree.postorderTraversal(tree.root);
+		System.out.println();
+		tree.iterativePreorderTraversal(tree.root);
+		System.out.println();
+		tree.iterativePostorderTraversal(tree.root);
 		System.out.println();
 		tree.iterativeInorderTraversal(tree.root);
 	}
@@ -112,25 +110,10 @@ public class BinaryTree{
 	}
 	
 	public void iterativePostorderTraversal(TreeNode treeNode) {
-		ArrayList<TreeNode> stack1 = new ArrayList<TreeNode>();
-		ArrayList<TreeNode> stack2 = new ArrayList<TreeNode>();
-		stack1.add(treeNode);
-		while(!stack1.isEmpty()) {
+		ArrayList<TreeNode> stack = new ArrayList<TreeNode>();
+		stack.add(treeNode);
+		while(!stack.isEmpty() || treeNode!=null) {
 			
-			treeNode = pop(stack1);
-			stack2.add(treeNode);
-			
-			if(treeNode.left!=null) {
-				stack1.add(treeNode.left);
-			}
-			if(treeNode.right!=null) {
-				stack1.add(treeNode.right);
-			}
-			
-		}
-		
-		while(!stack2.isEmpty()) {
-			System.out.print(pop(stack2).data+" ");
 		}
 	}
 

@@ -20,9 +20,11 @@ public class LinkedList<E> {
 		linkedList.add(9);
 		linkedList.add(10);
 		linkedList.update(10, 2);
-		linkedList.delete(4);
-		linkedList.printAllNodes();
-		System.out.println("\nHead: "+linkedList.head.element);
+		linkedList.add(10, 10);
+		linkedList.delete(Integer.valueOf(10));
+		linkedList.delete(9);
+		System.out.println("Linked List: "+linkedList);
+		System.out.println("Head: "+linkedList.head.element);
 		System.out.println("Tail: "+linkedList.tail.element);
 	}
 	
@@ -69,6 +71,44 @@ public class LinkedList<E> {
 			tail = current.next;
 		}
 	}
+
+	/**
+	 * <p>Appends a Node containing element at the specified index of the Linked List.</p>
+	 * @param element Element to be stored in the Node and inserted into the Linked List at the given index.
+	 * @param index Position at which the given element to be stored in the Linked List.
+	 */
+	public boolean add(int index, E element) {
+		Node node = new Node(element, null);
+		int count = 0;
+		if(index==0) {
+			node.next = head;
+			head = node;
+			return true;
+		}
+		else if(head==null) {
+			return false;
+		}
+		else if(index==1) {
+			node.next = head.next;
+			head.next = node;
+			return true;
+		}
+		else {
+			Node current = head;
+			Node prev = null;
+			while(current!=null && count!=index) {
+				prev = current;
+				current = current.next;
+				count++;
+			}
+			if(count!=index) {
+				return false;
+			}
+			node.next = current;
+			prev.next = node;
+			return true;
+		}
+	}
 	
 	/**
 	 * <p>Deletes a Node from the Linked List which contains the element given in the argument.</p>
@@ -93,7 +133,51 @@ public class LinkedList<E> {
 			}
 			prev = current;
 			current = current.next;
+			if(current==null) {
+				break;
+			}
 			next = current.next;
+		}
+		return false;
+	}
+	
+
+	/**
+	 * <p>Deletes a Node from the Linked List which is at the given index</p>
+	 * @param index Position at which a Node is located and should be deleted.
+	 * @return Returns true if the Node at the given index is deleted, else returns false.
+	 */
+	public boolean delete(int index) {
+		if(head==null) {
+			return false;
+		}
+		if(index==0) {
+			head = head.next;
+			return true;
+		}
+		int count = 0;
+		Node current = head;
+		Node prev = null;
+		Node next = null;
+		while(current!=null) {
+			if(count==index) {
+				if(prev==null) {
+					head=head.next;
+					return true;
+				}
+				prev.next = next;
+				if(next==null) {
+					tail = prev;
+				}
+				return true;
+			}
+			prev = current;
+			current = current.next;
+			if(current==null) {
+				break;
+			}
+			next = current.next;
+			count++;
 		}
 		return false;
 	}
@@ -118,25 +202,28 @@ public class LinkedList<E> {
 	
 	
 	/**
-	 * <p>Prints all the elements of the Nodes in the Linked List.</p>
+	 * <p>Returns string representation of Linked List.</p>
 	 */
-	public void printAllNodes() {
+	@Override
+	public String toString() {
+		String string = "";
 		if(head==null) {
-			System.out.println("LinkedList is empty.");
-			return;
+			string+="LinkedList is empty.";
+			return string;
 		}
-		System.out.print("LinkedList: ");
 		Node current = head;
-		System.out.print("[");
+		string+="[";
 		while(current!=null) {
 			if(current.next==null) {
-				System.out.println(current.element+"]");
+				string+=current.element+"]\n";
 				current = current.next;
 				continue;
 			}
-			System.out.print(current.element+",");
+			string+=current.element+",";
 			current = current.next;
 		}
+		return string;
 	}
 
 }
+
