@@ -4,14 +4,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.learn.java.intro.NestedClasses.StaticClass;
-
-
 /**
  * <p>Array Manipulations</p>
  */
 public class Arrays {
-	int num=536870912;
+	int num = 536870912;
     int[] list = new int[num];
     int[] array = new int[num];
     public static void main(String[] args) {

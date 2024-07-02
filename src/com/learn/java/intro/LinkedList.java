@@ -22,7 +22,7 @@ public class LinkedList<E> {
 		linkedList.update(10, 2);
 		linkedList.add(10, 10);
 		linkedList.delete(Integer.valueOf(10));
-		linkedList.delete(9);
+		linkedList.add(10, 5);
 		System.out.println("Linked List: "+linkedList);
 		System.out.println("Head: "+linkedList.head.element);
 		System.out.println("Tail: "+linkedList.tail.element);
@@ -103,6 +103,12 @@ public class LinkedList<E> {
 			}
 			if(count!=index) {
 				return false;
+			}
+			if(current==null) {
+				node.next = current;
+				prev.next = node;
+				tail = node;
+				return true;
 			}
 			node.next = current;
 			prev.next = node;
