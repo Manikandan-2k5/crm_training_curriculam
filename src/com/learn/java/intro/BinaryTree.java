@@ -2,9 +2,13 @@ package com.learn.java.intro;
 
 import java.util.ArrayList;
 
+
+/**
+ * <p>Binary Tree is a Entity which will at most have 2 children</p>
+ */
 public class BinaryTree{
 	
-	private TreeNode root;
+	private TreeNode root;// Root is the starting point of the binary tree
 	
 	public BinaryTree() {
 		this.root = null;
@@ -34,6 +38,10 @@ public class BinaryTree{
 		System.out.println();
 	}
 	
+	
+	/**
+	 * <p>Tree Nodes contains data, left child pointer and right child pointer</p>
+	 */
 	class TreeNode{
 		
 		int data;
@@ -48,6 +56,10 @@ public class BinaryTree{
 		
 	}
 	
+	/**
+	 * <p>Creates a tree node with a given data and assigns it to the root tree node if the root tree node is null. Else it will recursively call {@code}recursiveInsert method and assigns the newly created tree to the root tree.</p>
+	 * @param data data to be created as tree node and to be inserted in the binary tree.
+	 */
 	public void insert(int data) {
 		if(root==null) {
 			root = new TreeNode(data);
@@ -57,6 +69,12 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>This recursive function calls itself with same data and different tree node, left tree node if the given data is less than tree node data or right tree node if the given data is greater than tree node data. If the tree node is null it assigns the tree node with the new tree node with the given value and back tracking happens.</p>
+	 * @param data data to be created as tree node and inserted in the binary tree.
+	 * @param treeNode tree node in which the data should be inserted as a child tree node.
+	 * @return returns the tree node which got appended by the new tree node with the given value. 
+	 */
 	public TreeNode recursiveInsert(int data, TreeNode treeNode) {	
 		if(treeNode==null) {
 			treeNode = new TreeNode(data);
@@ -70,6 +88,10 @@ public class BinaryTree{
 		return treeNode;
 	}
 	
+	/**
+	 * <p>This traverses the binary tree like, root>left>right (recursive)</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void preorderTraversal(TreeNode treeNode) {
 		if(treeNode!=null) {
 			System.out.print(treeNode.data+" ");
@@ -78,6 +100,10 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>This traverses the binary tree like, left>root>right (recursive)</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void inorderTraversal(TreeNode treeNode) {
 		if(treeNode!=null) {
 			inorderTraversal(treeNode.left);
@@ -86,6 +112,10 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>This traverses the binary tree like, left>right>root (recursive)</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void postorderTraversal(TreeNode treeNode) {
 		if(treeNode!=null) {
 			postorderTraversal(treeNode.left);
@@ -94,6 +124,10 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>This traverses the binary tree like, root>left>right (iterative). Uses stack to traverse.</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void iterativePreorderTraversal(TreeNode treeNode) {
 		ArrayList<TreeNode> stack = new ArrayList<TreeNode>();
 		stack.add(treeNode);
@@ -110,6 +144,10 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>This traverses the binary tree like, left>right>root (iterative). Uses two stack to traverse.</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void iterativePostorderTraversal(TreeNode treeNode) {
 		ArrayList<TreeNode> stack1 = new ArrayList<TreeNode>();
 		ArrayList<TreeNode> stack2 = new ArrayList<TreeNode>();
@@ -132,6 +170,10 @@ public class BinaryTree{
 		}
 	}
 
+	/**
+	 * <p>This traverses the binary tree like, left>root>right (iterative). Uses stack to traverse.</p>
+	 * @param treeNode tree node to be traversed.
+	 */
 	public void iterativeInorderTraversal(TreeNode treeNode) {
 		
 		ArrayList<TreeNode> stack = new ArrayList<TreeNode>();
@@ -146,6 +188,11 @@ public class BinaryTree{
 		}
 	}
 	
+	/**
+	 * <p>Removes and returns the last element from the given stack</p>
+	 * @param stack stack in which the last element should be removed and returned.
+	 * @return the last element of the stack.
+	 */
 	public TreeNode pop(ArrayList<TreeNode> stack) {
 		return stack.remove(stack.size()-1);
 	}
