@@ -23,5 +23,4 @@ public class Stacks {
 		System.out.println("Last element fromt he stack: "+stack.peek());//Returns the top element from the stack, if stack is empty returns null.
 		System.out.println("Stack is empty: "+stack.isEmpty());//Return true if stack is empty, else returns false.
 	}
-	
 }
