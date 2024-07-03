@@ -5,7 +5,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 
 /**
- * <p>Implemented methods specific to Queues</p>
+ * <p>Queue is an Entity in which elements are inserted at the last and removed from first, i.e First In First Out Order.</p>
  */
 public class Queues {
 	
