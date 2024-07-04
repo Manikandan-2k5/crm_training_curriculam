@@ -1,6 +1,5 @@
 package com.learn.java.intro;
 
-
 /**
  * <p>This class implements all types of Exceptions</p>
  */
@@ -71,6 +70,7 @@ class CheckedException extends Exception{
 	public CheckedException(Throwable cause) {
 		super(cause);
 	}
+	
 }
 
 /**
