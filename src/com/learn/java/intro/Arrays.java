@@ -8,9 +8,11 @@ import java.util.HashMap;
  * <p>Array Manipulations</p>
  */
 public class Arrays {
-	int num = 536870912;
-    int[] list = new int[num];
-    int[] array = new int[num];
+	int num = 268435456;
+	int[] list = new int[num];
+	int[] array = new int[num];
+	int[] arry1 = new int[num];
+	int[] arry2 = new int[num];
     public static void main(String[] args) {
         Arrays arrayFunctions = new Arrays();
         int[] array = new int[]{-1,-2,-8,-3,-1,0,3,-3,1,-9,6};
@@ -57,11 +59,13 @@ public class Arrays {
         int index = 0;
         while(index<=arrayFunctions.num-1) {
         	arrayFunctions.list[index] = arrayFunctions.num;
-        	arrayFunctions.array[index] = arrayFunctions.num;
         	index++;
         }
+        arrayFunctions.outMem();
+        arrayFunctions.outMem();
+        arrayFunctions.outMem();
+        arrayFunctions.outMem();
         System.out.println(arrayFunctions.list[index-1]);
-        System.out.println(arrayFunctions.array[index-1]);
         // System.out.println("Is two matrices are equal: "+arrayFunctions.twoMatricesEquals(nestedArray1, nestedArray2));
         // arrayFunctions.print2DArray(nestedArray);
         // arrayFunctions.addMatrix(nestedArray1, nestedArray2);
@@ -119,6 +123,10 @@ public class Arrays {
             }
             return second;
         }
+    }
+    
+    public void outMem() {
+    	 int[] array = new int[num];
     }
 
     /**
