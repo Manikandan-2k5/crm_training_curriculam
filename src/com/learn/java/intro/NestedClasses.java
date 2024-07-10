@@ -56,7 +56,7 @@ public class NestedClasses {
 		/**
 		 * <p>Local Nested Class</p>
 		 */
-		class LocalClass{// final local variable are only accesible.
+		class LocalClass{// final local variable are only accessible.
 			public void displayLocalFinalFields() {
 				System.out.println(num1);
 				System.out.println(num2);
