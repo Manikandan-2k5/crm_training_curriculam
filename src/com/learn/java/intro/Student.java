@@ -15,13 +15,19 @@ public class Student {
 	private int id;
 	Department department;
 	ArrayList<Course> courses = new ArrayList<Course>();
+	
+	public Student(String name, int id) {
+		this.name = name;
+		this.id = id;
+	}
 		
 	public ArrayList<Course> getCourses() {
 		return courses;
 	}
 
-	public void setCourses(ArrayList<Course> courses) {
+	public Student setCourses(ArrayList<Course> courses) {
 		this.courses = courses;
+		return this;
 	}
 
 	public String getName() {
@@ -44,8 +50,9 @@ public class Student {
 		return department;
 	}
 	
-	public void setDepartment(Department department) {
+	public Student setDepartment(Department department) {
 		this.department = department;
+		return this;
 	}
 	
 	public void addCourse(Course course) {
