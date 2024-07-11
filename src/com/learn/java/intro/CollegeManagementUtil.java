@@ -18,6 +18,9 @@ public class CollegeManagementUtil {
 	private Map<String,Student> students;
 	private Map<String, Course> courses;
 	
+	/**
+	 * <p>Initialises the Departments</p>
+	 */
 	private void initializeDepartments() {
 		departments = new HashMap<String, Department>();
 		departments.put("Science", new Department("Science", 1));
@@ -28,50 +31,26 @@ public class CollegeManagementUtil {
 		departments.put("Engineering", new Department("Engineering", 6));
 	}
 	
+	/**
+	 * <p>Initialises the Students</p>
+	 */
 	private void initializeStudents() {
 		students = new HashMap<String, Student>();
-		ArrayList<Course> courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Data Science"));
-		courseArray.add(courses.get("Artificial Intelligence"));
-		students.put("Manikandan",new Student("Manikandan", 1).setDepartment(departments.get("Science")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Machine Learning"));
-		courseArray.add(courses.get("Design"));
-		students.put("Chenneelavelan",new Student("Chenneelavelan", 2).setDepartment(departments.get("Arts")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Machine Learning"));
-		courseArray.add(courses.get("Design"));
-		students.put("Punith",new Student("Punith", 3).setDepartment(departments.get("Commerce")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Data Structures/Algorithms"));
-		courseArray.add(courses.get("Networks"));
-		students.put("Gokul",new Student("Gokul", 4).setDepartment(departments.get("Technology")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Design"));
-		courseArray.add(courses.get("Networks"));
-		students.put("Surya",new Student("Surya", 5).setDepartment(departments.get("Aeronautical")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Data Science"));
-		courseArray.add(courses.get("Networks"));
-		students.put("Praveenvasan",new Student("Praveenvasan", 6).setDepartment(departments.get("Science")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Data Structures/Algorithms"));
-		courseArray.add(courses.get("Artificial Intelligence"));
-		students.put("Maheshwar",new Student("Maheshwar", 7).setDepartment(departments.get("Commerce")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Data Science"));
-		courseArray.add(courses.get("Artificial Intelligence"));
-		students.put("Dharun",new Student("Dharun", 8).setDepartment(departments.get("Engineering")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Machine Learning"));
-		courseArray.add(courses.get("Artificial Intelligence"));
-		students.put("Sriram",new Student("Sriram", 9).setDepartment(departments.get("Technology")).setCourses(courseArray));
-		courseArray = new ArrayList<Course>();
-		courseArray.add(courses.get("Design"));
-		courseArray.add(courses.get("Data Science"));
-		students.put("Amos",new Student("Amos", 10).setDepartment(departments.get("Science")).setCourses(courseArray));
+		students.put("Manikandan", createStudent("Manikandan", 1, "Science", "Data Science", "Artificial Intelligence"));
+        students.put("Chenneelavelan", createStudent("Chenneelavelan", 2, "Arts", "Machine Learning", "Design"));
+        students.put("Punith", createStudent("Punith", 3, "Commerce", "Machine Learning", "Design"));
+        students.put("Gokul", createStudent("Gokul", 4, "Technology", "Data Structures/Algorithms", "Networks"));
+        students.put("Surya", createStudent("Surya", 5, "Aeronautical", "Design", "Networks"));
+        students.put("Praveenvasan", createStudent("Praveenvasan", 6, "Science", "Data Science", "Networks"));
+        students.put("Maheshwar", createStudent("Maheshwar", 7, "Commerce", "Data Structures/Algorithms", "Artificial Intelligence"));
+        students.put("Dharun", createStudent("Dharun", 8, "Engineering", "Data Science", "Artificial Intelligence"));
+        students.put("Sriram", createStudent("Sriram", 9, "Technology", "Machine Learning", "Artificial Intelligence"));
+        students.put("Amos", createStudent("Amos", 10, "Science", "Design", "Data Science"));
 	}
 	
+	/**
+	 * <p>Initialises the Courses</p>
+	 */
 	public void initializeCourses() {
 		courses = new HashMap<String, Course>();
 		courses.put("Data Science", new Course("Data Science", 1));
@@ -80,6 +59,32 @@ public class CollegeManagementUtil {
 		courses.put("Design", new Course("Design", 4));
 		courses.put("Data Structures/Algorithms", new Course("Data Structures/Algorithms", 5));
 		courses.put("Networks", new Course("Networks", 6));
+	}
+	
+	/**
+	 * <p>Creates a Student object with the given name, id, department, courses and returns it.</p>
+	 * @param name name of the student
+	 * @param id id of the student
+	 * @param department department of the student
+	 * @param coursesStringArray courses of the student
+	 * @return returns Student object
+	 */
+	public Student createStudent(String name, int id, String department, String... coursesStringArray) {
+		ArrayList<Course> courseArray = createCourseList(coursesStringArray);
+		return new Student(name, id).setDepartment(departments.get(department)).setCourses(courseArray);
+	}
+	
+	/**
+	 * <p>Creates and returns the course list with the given courses in the string multiple arguments parameter.</p>
+	 * @param coursesStringArray multiple argument variable for list of courses.
+	 * @return returns the course list.
+	 */
+	public ArrayList<Course> createCourseList(String... coursesStringArray){
+		ArrayList<Course> courseList = new ArrayList<Course>();
+		for(String course : coursesStringArray) {
+			courseList.add(courses.get(course));
+		}
+		return courseList;
 	}
 	
 	public static void main(String[] args) {
