@@ -24,40 +24,45 @@ public class ThreadLocalImpl {
 		System.out.println("Thread Context (After removing set to initial value): "+threadContexts.get());
 		
 		/**
-		 * Thread 1 Context setting using Thread Local.
+		 * Thread 1and Thread 2 Context setting using Thread Local.
 		 */
+		
+		testThreadLocal();
+			
+	}
+	
+	/**
+	 * <p>This method creates 2 threads which sets thread local value and manipulates it.</p>
+	 */
+	public static void testThreadLocal() {
+		
 		Thread thread1 = new Thread(
-		() -> 
-			{
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context(Initial Value Set): "+threadContexts.get());
-				threadContexts.set(10);//Setting the context for the current thread.
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context (Manually value set): "+threadContexts.get());
-				threadContexts.remove();//Removes the thread context for that particular thread.
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context (After removing set to initial value): "+threadContexts.get());
-			}, "Thread 1"
-		);
-				
+				() -> 
+					{
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context(Initial Value Set): "+threadContexts.get());
+						threadContexts.set(10);//Setting the context for the current thread.
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context (Manually value set): "+threadContexts.get());
+						threadContexts.remove();//Removes the thread context for that particular thread.
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context (After removing set to initial value): "+threadContexts.get());
+					}, "Thread 1"
+				);
 		
-		/**
-		 * Thread 2 Context setting using Thread Local.
-		 */
 		Thread thread2 = new Thread(
-		() -> 
-			{
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context(Initial Value Set): "+threadContexts.get());
-				threadContexts.set(20);//Setting the context for the current thread.
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context (Manually value set): "+threadContexts.get());
-				threadContexts.remove();//Removes the thread context for that particular thread.
-				System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
-				System.out.println("Thread Context (After removing set to initial value): "+threadContexts.get());
-			}, "Thread 2"
-		);	
-		
+				() -> 
+					{
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context(Initial Value Set): "+threadContexts.get());
+						threadContexts.set(20);//Setting the context for the current thread.
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context (Manually value set): "+threadContexts.get());
+						threadContexts.remove();//Removes the thread context for that particular thread.
+						System.out.print("Thread Name: "+Thread.currentThread().getName()+"; ");
+						System.out.println("Thread Context (After removing set to initial value): "+threadContexts.get());
+					}, "Thread 2"
+				);
 		
 		thread1.start();
 		try {
@@ -67,6 +72,7 @@ public class ThreadLocalImpl {
 			e.printStackTrace();
 		}
 		thread2.start();
+		
 	}
 	
 	
