@@ -241,7 +241,6 @@ public class ThreadImpl {
 					for(int i=0; i<10; i++) {
 						arrayList1.add(i+1);
 					}
-					
 					synchronized(arrayList2) {
 						for(int i=0; i<10; i++) {
 							arrayList2.add(i+1);
@@ -261,7 +260,6 @@ public class ThreadImpl {
 					for(int i=0; i<10; i++) {
 						arrayList2.add(i+1);
 					}
-					
 					synchronized(arrayList1) {
 						for(int i=0; i<10; i++) {
 							arrayList1.add(i+1);
@@ -283,7 +281,8 @@ public class ThreadImpl {
 		} 
 		catch (InterruptedException e) {
 			e.printStackTrace();
-		}	}
+		}	
+	}
 	
 }
 
