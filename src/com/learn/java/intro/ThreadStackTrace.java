@@ -15,6 +15,7 @@ public class ThreadStackTrace {
 	 */
 	public void usingThreadStackTrace() {
 		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+		
 		for(StackTraceElement element : stackTraceElements) {
 			System.out.println(element);
 		}

@@ -48,7 +48,12 @@ public class ThreadImpl {
 		/*
 		 * Represents the scenario of deadlock which makes the program to wait for indefinite time.
 		 */
-		threadImpl.deadLock();
+//		threadImpl.deadLock();
+		
+		/**
+		 * No Of threads this system can run.
+		 */
+		threadImpl.noOfThreadsCapableInSystem();
 	}
 	
 
@@ -282,6 +287,19 @@ public class ThreadImpl {
 		catch (InterruptedException e) {
 			e.printStackTrace();
 		}	
+	}
+	
+	/**
+	 * <p>This method prints how much Threads can be instantiated and started in a particular system.</p>
+	 */
+	public void noOfThreadsCapableInSystem() {
+		int count = 0;
+		while(true) {
+			Thread thread = new Thread(() -> { while(true) {try{Thread.sleep(1000);} catch(Exception e){e.printStackTrace();}}});
+			thread.start();
+			count++;
+			System.out.println(count);
+		}
 	}
 	
 }
