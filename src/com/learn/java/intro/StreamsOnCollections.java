@@ -54,9 +54,8 @@ public class StreamsOnCollections {
 //		System.out.println("Sum of elements in the empty list using reduce method of Stream without giving initial value: "+sum2.get());//This throws Exception as the stream is empty.
 		
 		
-		/**
-		 * This always returns a value, null will not be returned as we are giving the initial value.
-		 */
+		
+		//This always returns a value, null will not be returned as we are giving the initial value. 
 		int sum3 = list.stream().reduce(0, (x,y) -> x+y);
 		System.out.println("Sum of elements in the list using reduce method of Stream giving initial value: "+sum3);
 		

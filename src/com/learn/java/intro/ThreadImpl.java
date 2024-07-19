@@ -43,7 +43,7 @@ public class ThreadImpl {
 		 * Ensuring that a variable which is volatile, when modified by multiple threads, 
 		 * the modifications will be visible to other threads at all cases.
 		 */
-//		threadImpl.volatileVariabeModification();
+		threadImpl.volatileVariabeModification();
 		
 		/*
 		 * Represents the scenario of deadlock which makes the program to wait for indefinite time.
@@ -53,7 +53,7 @@ public class ThreadImpl {
 		/**
 		 * No Of threads this system can run.
 		 */
-		threadImpl.noOfThreadsCapableInSystem();
+//		threadImpl.noOfThreadsCapableInSystem();
 	}
 	
 
@@ -156,7 +156,7 @@ public class ThreadImpl {
 			public void run() {
 				for(int i=0; i<10; i++) {
 					try {		
-						array.add(i+1);
+						arrayList.add(i+1);
 						System.out.println("Array in writing thread: "+arrayList);
 					}
 					catch(ConcurrentModificationException e) {
@@ -168,6 +168,13 @@ public class ThreadImpl {
 		
 		writingThread.start();
 		readingThread.start();
+		try {
+			writingThread.join();
+			readingThread.join();
+		}
+		catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 	}
 	
