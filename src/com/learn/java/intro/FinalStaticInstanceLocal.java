@@ -1,5 +1,9 @@
 package com.learn.java.intro;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
  * <p>This class show cases the difference between Final, Static and Default keywords</p>
  */
@@ -10,7 +14,7 @@ public class FinalStaticInstanceLocal {
 	int instanceVariable = 15;//This is instance variable, i.e, every instance of this class has its own copy of this variable, which means it is non-static.
 	
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		FinalStaticInstanceLocal examples = new FinalStaticInstanceLocal();
 		
 		//Example for final vs static variable.
