@@ -4,8 +4,7 @@ import java.util.ArrayList;
 /**
  * <p>This class uses the clone method to represent the cloning of the object, and represents the difference between Deep and Shallow Copy.</p>
  */
-public class Clone {
-	
+public class Clone{
 	public static void main(String[] args) throws CloneNotSupportedException {
 		
 		//Example of clone method.
