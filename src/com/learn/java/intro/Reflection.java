@@ -153,6 +153,7 @@ class SampleObject implements Serializable{
 	
 	private int num;
 	public volatile String string;
+	transient boolean bool;
 	
 	public int getNum() {
 		return num;
@@ -160,6 +161,14 @@ class SampleObject implements Serializable{
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	public boolean isBool() {
+		return bool;
+	}
+
+	public void setBool(boolean bool) {
+		this.bool = bool;
 	}
 
 	public String getString() {
@@ -173,11 +182,13 @@ class SampleObject implements Serializable{
 	public SampleObject() {
 		this.num = 5;
 		this.string = "Hello";
+		this.bool = false;
 	}
 	
-	public SampleObject(int num, String string) {
+	public SampleObject(int num, String string, boolean bool) {
 		this.num = num;
 		this.string = string;
+		this.bool = bool;
 	}
 	
 	public void display() {
