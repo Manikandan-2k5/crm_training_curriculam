@@ -1,5 +1,6 @@
 package com.learn.java.intro;
 
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -10,8 +11,8 @@ import java.lang.reflect.Parameter;
 /**
  * <p>This Class uses Reflection API to access and invoke methods, constructors and fields of an object at Runtime.</p>
  */
-public class Reflection {
-	
+public class Reflection{
+
 	public static void main(String[] args) {
 		getFieldsOfObject();
 		getMethodsOfObject();
@@ -143,12 +144,32 @@ public class Reflection {
 	}
 }
 
+/**
+ * <p>A Sample Class used for Reflection and Serialization Classes.</p>
+ */
+class SampleObject implements Serializable{
 
-class SampleObject{
+	private static final long serialVersionUID = 1L;
 	
 	private int num;
 	public volatile String string;
 	
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public String getString() {
+		return string;
+	}
+
+	public void setString(String string) {
+		this.string = string;
+	}
+
 	public SampleObject() {
 		this.num = 5;
 		this.string = "Hello";
