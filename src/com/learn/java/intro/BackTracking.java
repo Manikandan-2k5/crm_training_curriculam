@@ -1,22 +1,32 @@
 package com.learn.java.intro;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
+/**
+ * <p>
+ * This Class utilizes the concept of Backtracking for finding all possible permutations of the elements in an array.
+ * It also gives a method for the funny game Flames to find the relationship between two names.
+ * </p>
+ */
 public class BackTracking {
 	
 	static int[] intArray;
-	static int permutations = 0;
+	static AtomicInteger permutations = new AtomicInteger(0);
 	
-	public static void main(String[] args) {
-//		intArray = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
-//		ArrayList<int[]> result = new ArrayList<int[]>();
-//		long startTime = System.currentTimeMillis();
-//		BackTracking.combinations(intArray, 0);
-//		long endTime = System.currentTimeMillis();
-//		System.out.println("Time Taken: "+(endTime-startTime)+"ms");
-//		System.out.println("Permutations: "+permutations);
-		flames("Manikandan", "Maanickavasagar");
+	public static void main(String[] args) throws InterruptedException {
+		intArray = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
+		ArrayList<int[]> result = new ArrayList<int[]>();
+		long startTime = System.currentTimeMillis();
+		BackTracking.permutations(intArray, 0);
+		long endTime = System.currentTimeMillis();
+		System.out.println("Time taken: "+(endTime-startTime)+"ms");
+		System.out.println("Permutations: "+permutations);
+//		flames("vinaykumar", "ashokkarthi");
 		
 	}
 
@@ -25,11 +35,10 @@ public class BackTracking {
 	 * @param elementArray array to be traversed.
 	 * @param index cursor pointer for the array.
 	 */
-	public static void combinations(int[] elementArray, int index) {
-		
+	public static void permutations(int[] elementArray, int index) {
 		if(index==elementArray.length-1) {
-			Arrays.print(elementArray);
-			permutations++;
+			permutations.getAndAdd(1);
+			System.out.println(java.util.Arrays.toString(elementArray));
 		}
 		
 		else {
@@ -37,7 +46,7 @@ public class BackTracking {
 				int temp = elementArray[index];
 				elementArray[index] = elementArray[i];
 				elementArray[i] = temp;
-				combinations(elementArray.clone(), index+1);
+				permutations(elementArray.clone(), index+1);
 			}
 		}
 		
@@ -60,6 +69,7 @@ public class BackTracking {
 		
 		strikeCommonCharactersOnce(name1Chars, name2Chars);
 		
+		
 		ArrayList<String> escapedChars = new ArrayList<String>();
 		
 		for(char character : name1Chars) {
@@ -80,7 +90,13 @@ public class BackTracking {
 		int intervalForStrike = escapedChars.size();
 		int pointer = 1;
 		recurseFlame(0, intervalForStrike, pointer, flamesArray);
-		System.out.println(flamesArray.get(0));
+		HashMap<String, String> flameRelations = new HashMap<String, String>();
+		flameRelations.put("F", "Friendship");
+		flameRelations.put("L", "Love");
+		flameRelations.put("A", "Affection");
+		flameRelations.put("M", "Marriage");
+		flameRelations.put("E", "Enemies");
+		System.out.println("Relationship between you both: "+flameRelations.get(flamesArray.get(0)));
 		
 		
 	}
@@ -98,7 +114,7 @@ public class BackTracking {
 		}
 		else if(pointer==intervalForStrike) {
 			flamesArray.remove(index);
-			if(index>=flamesArray.size()-1) {
+			if(index>flamesArray.size()-1) {
 				recurseFlame(0, intervalForStrike, 1, flamesArray);
 			}
 			else {
