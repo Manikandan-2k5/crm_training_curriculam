@@ -32,7 +32,7 @@ public class Recursion {
 	 * @return returns the fibonacci series
 	 */
 	public ArrayList<Integer> recursiveMethod(ArrayList<Integer> series, int limit){
-		if(series.get(series.size()-1)+series.get(series.size()-2)>=limit) { //Recursion Break Condition
+		if(series.get(series.size()-1)+series.get(series.size()-2)>limit) { //Recursion Break Condition
 			return series;
 		}
 		else {//Recursion Logic

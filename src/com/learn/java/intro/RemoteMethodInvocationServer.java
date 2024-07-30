@@ -37,14 +37,3 @@ class CalculatorImpl extends UnicastRemoteObject implements CalculatorServer{
 	}
 	
 }
-
-class Client{
-	
-	public static void main(String[] args) throws RemoteException, NotBoundException {
-		Registry registry = LocateRegistry.getRegistry("10.51.8.34", 1289);
-		CalculatorServer calculator = (CalculatorServer) registry.lookup("CalculatoServer");
-		int result = calculator.add(5, 3);
-		System.out.println(result);
-	}
-	
-}

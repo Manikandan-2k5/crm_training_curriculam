@@ -173,7 +173,7 @@ public class Arrays {
      * <p>Prints the array</p>
      * @param array array to be iterated
      */
-    public void print(int[] array){
+    public static void print(int[] array){
         System.out.print("[");
         for(int i=0; i<array.length; i++){
             if(i==array.length-1){
