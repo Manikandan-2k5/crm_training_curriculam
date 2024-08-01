@@ -20,12 +20,10 @@ public class BackTracking {
 	
 	public static void main(String[] args) throws InterruptedException {
 		intArray = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
-		ArrayList<int[]> result = new ArrayList<int[]>();
 		long startTime = System.currentTimeMillis();
 		BackTracking.permutations(intArray, 0);
 		long endTime = System.currentTimeMillis();
 		System.out.println("Time taken: "+(endTime-startTime)+"ms");
-		System.out.println("Permutations: "+permutations);
 //		flames("vinaykumar", "ashokkarthi");
 		
 	}
@@ -46,7 +44,10 @@ public class BackTracking {
 				int temp = elementArray[index];
 				elementArray[index] = elementArray[i];
 				elementArray[i] = temp;
-				permutations(elementArray.clone(), index+1);
+				permutations(elementArray, index+1);
+				temp = elementArray[index];
+				elementArray[index] = elementArray[i];
+				elementArray[i] = temp;
 			}
 		}
 		
