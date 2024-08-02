@@ -632,7 +632,7 @@ public class Arrays {
      * <p>Prints a 2D Nested Array</p>
      * @param array array to be iterated
      */
-    public void print2DArray(int[][] array){
+    public static void print2DArray(int[][] array){
         for(int i=0 ;i<array.length; i++){
             if(i==0){
                 System.out.print("[[");

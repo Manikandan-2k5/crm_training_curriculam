@@ -2,8 +2,16 @@ package com.learn.java.intro;
 
 import java.util.Arrays;
 
+/**
+ * <p>Efficient Algorithm for finding all permutations for the given array of elements.</p>
+ */
 public class HeapAlgo {
     
+	/**
+	 * <p>Recursive method which swaps elements of the array to find different permutations.</p>
+	 * @param a array of elements
+	 * @param size no of selected elements from the array for permutation.
+	 */
     public void heapPermutation(int a[], int size) {
     	if (size == 1) {
         	System.out.println(Arrays.toString(a));
