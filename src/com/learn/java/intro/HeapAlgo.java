@@ -22,13 +22,13 @@ public class HeapAlgo {
         	heapPermutation(a, size - 1);
         	if (size % 2 == 1) {
          		int temp = a[0];
-            		a[0] = a[size - 1];
-            		a[size - 1] = temp;
+            	a[0] = a[size - 1];
+            	a[size - 1] = temp;
         	} 
         	else {
-            		int temp = a[i];
-            		a[i] = a[size - 1];
-            		a[size - 1] = temp;
+            	int temp = a[i];
+            	a[i] = a[size - 1];
+            	a[size - 1] = temp;
         	}
     	}
     }
@@ -37,7 +37,8 @@ public class HeapAlgo {
     public static void main(String args[])
     {
         HeapAlgo obj = new HeapAlgo();
-        int[] a = { 1,2,3 };
+        int[] a = { 1,2,3,4,5,6,7,8,9,10,11 };
         obj.heapPermutation(a, a.length);
     }
+    
 }

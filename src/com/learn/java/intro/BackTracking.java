@@ -19,7 +19,7 @@ public class BackTracking {
 	static AtomicInteger permutations = new AtomicInteger(0);
 	
 	public static void main(String[] args) throws InterruptedException {
-		intArray = new int[] {1,2,3,4,5,6,7,8,9,10,11,12};
+		intArray = new int[] {1,2,3,4,5,6,7,8,9,10,11};
 		long startTime = System.currentTimeMillis();
 		BackTracking.permutations(intArray, 0);
 		long endTime = System.currentTimeMillis();
