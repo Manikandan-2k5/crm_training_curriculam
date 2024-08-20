@@ -48,7 +48,7 @@ public class AtomicWrapperClasses {
 			System.out.println("Thread Interrupted.");
 		}
 		
-		System.out.println("Result of incrementing a non atomic integer 50000 times: "+num);
+		System.out.println("Result of incrementing a atomic integer 50000 times: "+num);
 		
 	}
 	

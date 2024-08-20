@@ -27,6 +27,16 @@ public class Generics {
 		
 		System.out.println("List with a generic type of number: "+list);
 		
+		//Using wild card generics.
+		List<Integer> array = new ArrayList<Integer>();
+		array.add(11);
+		array.add(19);
+		array.add(25);
+		array.add(30);
+		array.add(43);
+		integerTypeObject.unboundWildCardMethod(array);
+		integerTypeObject.upperBoundWildCardMethod(array);
+		integerTypeObject.lowerBoundWildCardMethod(array);
 	}
 	
 }
@@ -38,7 +48,6 @@ public class Generics {
 class GenericWrapper<T>{
 	
 	T typeObject;
-	
 	/**
 	 * <p>This is a Generic method which takes argument of any type of object.</p>
 	 * @param typeObject any type of object.
@@ -53,6 +62,41 @@ class GenericWrapper<T>{
 	 */
 	public T getTypeObject() {
 		return typeObject;
+	}
+	
+	/**
+	 * <p>Using unbound wild card generic for traversing a list.</p>
+	 * @param list list to be traversed, whose elements type is unknown.
+	 */
+	public void unboundWildCardMethod(List<?> list) {
+		System.out.print("[ ");
+		for(Object element : list) {
+			System.out.print(element+" ");
+		}
+		System.out.println("]");
+	}
+	
+	/**
+	 * <p>Using upper bound wild card generic for traversing a list.</p>
+	 * @param list list to be traversed, whose elements type is upper bound class or its sub class.
+	 */
+	public void upperBoundWildCardMethod(List<? extends Number> list) {
+		System.out.print("[ ");
+		for(Object element : list) {
+			System.out.print(element+" ");
+		}
+		System.out.println("]");
+	}
+	
+	/**
+	 * <p>Using lower bound wild card generic for writing a list.</p>
+	 * @param list list to be appended, whose elements type is lower bound class or its super class.
+	 */
+	public void lowerBoundWildCardMethod(List<? super Integer> list) {
+		for(int i=0; i<10; i++) {
+			list.add(i+1);
+		}
+		System.out.println(list);
 	}
 	
 }

@@ -3,7 +3,6 @@ package com.learn.java.intro;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
@@ -29,7 +28,6 @@ public class Reflection{
 	 * </p>
 	 */
 	public static void getFieldsOfObject() {
-		
 		SampleObject object = new SampleObject();
 		Class<?> classOfObject = object.getClass();
 		Field[] fields = classOfObject.getDeclaredFields();
@@ -91,8 +89,8 @@ public class Reflection{
 		
 		try {
 			Class<?> classObject = Class.forName("com.learn.java.intro.SampleObject");
-			Constructor<?> constructor = classObject.getConstructor(int.class, java.lang.String.class);
-			SampleObject object = (SampleObject) constructor.newInstance(10, "Manikandan");
+			Constructor<?> constructor = classObject.getConstructor(int.class, java.lang.String.class, boolean.class);
+			SampleObject object = (SampleObject) constructor.newInstance(10, "Manikandan", true);
 			System.out.println("To ensure object is created, print its string field: "+object.string);
 		}
 		catch(Exception e) {
@@ -111,9 +109,9 @@ public class Reflection{
 		
 		try {
 			SampleObject object = new SampleObject();
-			Method method = object.getClass().getMethod("display", java.lang.String.class);
-			method.invoke(object, "Hello Im Manikandan");
-			
+			Method method = object.getClass().getDeclaredMethod("message");
+			method.setAccessible(true);
+			method.invoke(object);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -145,15 +143,17 @@ public class Reflection{
 }
 
 /**
- * <p>A Sample Class used for Reflection and Serialization Classes.</p>
+ * <p>A Sample Class used for Reflection and SerializationDeserialization Classes.</p>
  */
-class SampleObject implements Serializable{
-
-	private static final long serialVersionUID = 1L;
+class SampleObject implements Serializable {
 	
-	private int num;
-	public volatile String string;
 	transient boolean bool;
+	public volatile String string;
+	private int num;
+	
+	/**
+	 * <p>This is for preventing Reflection API from accessing private, protected or package-private methods and fields. </p>
+	 */
 	
 	public int getNum() {
 		return num;
@@ -186,7 +186,7 @@ class SampleObject implements Serializable{
 	}
 	
 	public SampleObject(int num, String string, boolean bool) {
-		this.num = num;
+		this.num = 5;
 		this.string = string;
 		this.bool = bool;
 	}
@@ -197,6 +197,22 @@ class SampleObject implements Serializable{
 	
 	public void display(String message) {
 		System.out.println(message);
+	}
+	
+	private void message() {
+		accessFromReflection();
+		System.out.println("hello");
+	}
+	
+	/**
+	 * This method checks whether the method call is from Reflection API, and if it is, then it will throw a SecurityException.
+	 */
+	public void accessFromReflection() {
+		for(StackTraceElement element : Thread.currentThread().getStackTrace()) {
+			if(element.getClassName()==Method.class.getName()) {
+				throw new SecurityException("Access Denied!");
+			}
+		}
 	}
 	
 }

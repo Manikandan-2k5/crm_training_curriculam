@@ -194,13 +194,9 @@ public class ThreadImpl {
 				for(int i=0; i<10; i++) {
 					try {
 						System.out.println("Array in reading thread: "+array);
-						Thread.sleep(1000);
 					}
 					catch (ConcurrentModificationException e) {
 						continue;
-					} 
-					catch (InterruptedException e) {
-						e.printStackTrace();
 					}
 				}
 			}
@@ -213,14 +209,10 @@ public class ThreadImpl {
 					try {		
 						array.add(i+1);
 						System.out.println("Array in writing thread: "+array);
-						Thread.sleep(500);
 					}
 					catch(ConcurrentModificationException e) {
 						continue;
 					} 
-					catch (InterruptedException e) {
-						e.printStackTrace();
-					}
 				}
 			}
 		};

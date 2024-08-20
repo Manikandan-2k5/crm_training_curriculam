@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.RandomAccessFile;
 
 /**
  * <p>
@@ -18,7 +19,6 @@ public class SerializationDeserialization {
 		serializeObject();
 		deserializeObject();
 	}
-
 
 	/**
 	 * <p>
@@ -39,8 +39,8 @@ public class SerializationDeserialization {
 			FileOutputStream fileOutputStream = new FileOutputStream("/home/manikandans/object.data");
 			ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
 			objectOutputStream.writeObject(object);
-			fileOutputStream.close();
 			objectOutputStream.close();
+			fileOutputStream.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -52,7 +52,6 @@ public class SerializationDeserialization {
 	 * </p>
 	 */
 	private static void deserializeObject() {
-		
 		SampleObject object = null;
 		//Deserializing the file to the saved state of an object.
 		try {
@@ -69,4 +68,5 @@ public class SerializationDeserialization {
 		System.out.println("string value of object: "+object.getString());
 		System.out.println("bool value of object: "+object.isBool());//This returns the current state of the bool value, and not the state when the object was serialized, as this field is transient.
 	}
+	
 }
