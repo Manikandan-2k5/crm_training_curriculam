@@ -191,6 +191,7 @@ public class ThreadImpl {
 		Thread readingThread = new Thread() {
 			@Override
 			public void run() {
+				this.setPriority(MIN_PRIORITY);
 				for(int i=0; i<10; i++) {
 					try {
 						System.out.println("Array in reading thread: "+array);
@@ -205,6 +206,7 @@ public class ThreadImpl {
 		Thread writingThread = new Thread() {
 			@Override
 			public void run() {
+				this.setPriority(MAX_PRIORITY);
 				for(int i=0; i<10; i++) {
 					try {		
 						array.add(i+1);
